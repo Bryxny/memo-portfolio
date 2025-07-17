@@ -28,14 +28,14 @@ export default function ToDoNote({
             draggable={false}
             onMouseDown={onMouseDown}
           />
-          <h2 className="handwriting text-2xl font-bold text-black text-center tracking-widest">
+          <h2 className="handwriting text-2xl font-bold text-gray-800  text-center tracking-widest">
             To-do list
           </h2>
-          <ul className="mt-4 space-y-2">
+          <ul className="mt-4 space-y-2 ">
             {projects.map((project, i) => (
               <li
                 key={i}
-                className={`handwriting text-lg text-black tracking-wide ${
+                className={`handwriting text-lg text-gray-800  tracking-wide leading-tight ${
                   project.isCompleted ? "line-through" : ""
                 }`}
               >

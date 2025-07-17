@@ -19,7 +19,11 @@ export default function ContactNote({
     <Draggable initialX={initialX} initialY={initialY} zIndex={zIndex}>
       {(onMouseDown) => (
         <div
-          className={`absolute w-[250px] h-[250px] rotate-[${rotation}deg] bg-[url('/WhiteNote.webp')] bg-contain bg-no-repeat p-4 cursor-default transition duration-300 hover:scale-105 hover:z-10`}
+          className={`absolute w-[250px] h-[250px] bg-[url('/WhiteNote.webp')] bg-contain bg-no-repeat p-4 cursor-default transition duration-300 hover:scale-105 hover:z-10 `}
+          style={{
+            transform: `rotate(${rotation}deg)`,
+            zIndex,
+          }}
         >
           <img
             src="/Post-it-pin2.png"
@@ -28,17 +32,17 @@ export default function ContactNote({
             draggable={false}
             onMouseDown={onMouseDown}
           />
-          <h2 className="handwriting text-2xl font-bold text-black text-center tracking-widest">
+          <h2 className="handwriting text-2xl font-bold text-gray-800  pr-5 text-center tracking-widest">
             Contact Info
           </h2>
-          <ul className="mt-4 space-y-2 text-black">
+          <ul className="handwriting mt-4 text-center text-2xl space-y-2 pr-9 text-gray-800 mt-10 ">
             <li>bryonydoh@gmail.com</li>
             <li>
               <a
                 href="https://www.linkedin.com/in/bryony-doherty-softdev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline text-blue-600 hover:text-blue-800"
+                className="underline text-gray-700 hover:text-gray-800"
               >
                 LinkedIn
               </a>

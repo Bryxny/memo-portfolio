@@ -29,7 +29,12 @@ export default function StickyNote({
     <Draggable initialX={initialX} initialY={initialY} zIndex={zIndex}>
       {(onMouseDown) => (
         <div
-          className={`absolute select-none w-[250px] h-[250px] bg-${bgurl} bg-contain bg-no-repeat p-4 pr-10 transition-transform duration-300 hover:scale-105 rotate-[${rotation}deg] z-${zIndex}`}
+          className={`absolute select-none w-[250px] h-[250px] bg-contain bg-no-repeat p-4 pr-10 transition-transform duration-300 hover:scale-105`}
+          style={{
+            transform: `rotate(${rotation}deg)`,
+            backgroundImage: `url(${bgurl})`,
+            zIndex,
+          }}
         >
           <img
             src="/Post-it-pin2.png"
@@ -38,14 +43,14 @@ export default function StickyNote({
             draggable={false}
             onMouseDown={onMouseDown}
           />
-          <h2 className="handwriting text-2xl font-bold text-black text-center tracking-widest cursor-default">
+          <h2 className="handwriting text-2xl font-bold text-gray-800  text-center tracking-widest cursor-default">
             {title}
           </h2>
-          <p className="handwriting tracking-wide text-l mt-2 text-black">
+          <p className="handwriting tracking-wide text-l mt-2 text-gray-800 ">
             {description}
           </p>
           {techStack && (
-            <ul className="mt-2 text-xs text-black list-disc list-inside">
+            <ul className="text-s handwriting text-gray-800  list-disc list-inside leading-tight">
               {techStack.map((tech, index) => (
                 <li key={index}>{tech}</li>
               ))}

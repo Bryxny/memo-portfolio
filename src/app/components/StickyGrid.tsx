@@ -5,69 +5,78 @@ import { projects } from "../lib/projects";
 import ContactNote from "./ContactNote";
 import ToDoNote from "./ToDoNote";
 import Polaroid from "./Polaroid";
+import { polaroids } from "../lib/polaroids";
+import QuoteNote from "./QuoteNote";
 
 const NotePositions = [
-  { x: 50, y: 350, z: 1 },
-  { x: 250, y: 350, z: 2 },
-  { x: 450, y: 350, z: 3 },
-  { x: 650, y: 350, z: 4 },
-  { x: 850, y: 350, z: 5 },
+  { x: 50, y: 450, z: 1 },
+  { x: 250, y: 450, z: 2 },
+  { x: 450, y: 450, z: 3 },
+  { x: 650, y: 450, z: 4 },
+  { x: 850, y: 450, z: 5 },
 ];
+
+const polaroidPositions = [
+  { x: 1000, y: 0, z: 2, rotation: 12 },
+  { x: 850, y: 0, z: 1, rotation: -12 },
+  { x: 50, y: 0, z: 2, rotation: -12 },
+  { x: 200, y: 0, z: 1, rotation: 12 },
+];
+
+const noteColours = [
+  "BlueNote.webp",
+  "PinkNote.webp",
+  "YellowNote.webp",
+  "GreenNote.webp",
+];
+
 export default function StickyGrid() {
   const completedProjects = projects.filter((p) => p.isCompleted);
 
   return (
-    <div className="relative flex">
+    <div
+      className="relative flex overflow-hidden"
+      style={{ height: "1300px", touchAction: "none" }}
+    >
       <div className="m-20">
         <ToDoNote initialX={530} initialY={0} zIndex={1} rotation={0} />
-        <ContactNote rotation={7} initialX={1000} initialY={350} zIndex={1} />
+        <ContactNote rotation={7} initialX={900} initialY={350} zIndex={1} />
+        <QuoteNote rotation={15} initialX={1000} initialY={550} zIndex={0} />
         {completedProjects.map((project, index) => {
           const rotation = index % 2 === 0 ? -12 : 12;
           const pos = NotePositions[index] || { x: 0, y: 0, z: 1 };
+          const colourIndex = index % noteColours.length;
           return (
             <StickyNote
               key={project.id}
               {...project}
               rotation={rotation}
-              bgurl={"[url('/WhiteNote.webp')]"}
+              bgurl={noteColours[colourIndex]}
               initialX={pos.x}
               initialY={pos.y}
               zIndex={pos.z}
             />
           );
         })}
-        <Polaroid
-          url={"[url('/Polaroid1.webp')]"}
-          text={"Cinder (not) helping me work"}
-          rotation={12}
-          initialX={1000}
-          initialY={0}
-          zIndex={2}
-        />
-        <Polaroid
-          url={"[url('/Polaroid1.webp')]"}
-          text={"Cinder (not) helping me work"}
-          rotation={-12}
-          initialX={850}
-          initialY={0}
-          zIndex={1}
-        />
-        <Polaroid
-          url={"[url('/Polaroid1.webp')]"}
-          text={"Cinder (not) helping me work"}
-          rotation={-12}
-          initialX={50}
-          initialY={0}
-          zIndex={2}
-        />
-        <Polaroid
-          url={"[url('/Polaroid1.webp')]"}
-          text={"Cinder (not) helping me work"}
-          rotation={12}
-          initialX={200}
-          initialY={0}
-          zIndex={1}
-        />
+        {polaroids.map((polaroid, index) => {
+          const {
+            x = 0,
+            y = 0,
+            z = 1,
+            rotation = 0,
+          } = polaroidPositions[index] || {};
+          return (
+            <Polaroid
+              key={index}
+              url={polaroid.url}
+              text={polaroid.text}
+              rotation={rotation}
+              initialX={x}
+              initialY={y}
+              zIndex={z}
+            />
+          );
+        })}
       </div>
     </div>
   );
