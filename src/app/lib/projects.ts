@@ -4,6 +4,7 @@ export const projects = [
     title: "Portfolio Website",
     description: "Built with Next.js and Tailwind",
     techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
+    isCompleted: true,
   },
   {
     id: "nc-news",
@@ -11,6 +12,7 @@ export const projects = [
     description:
       "News website built with react js that fetches articles from a backend api that the user can interact with.",
     techStack: ["React.js", "CSS", "Javascript"],
+    isCompleted: true,
   },
   {
     id: "cheffy",
@@ -18,6 +20,7 @@ export const projects = [
     description:
       "Cooking assistant app made with react native with the aim of creating a hands-free experience.",
     techStack: ["React.js", "CSS", "Javascript"],
+    isCompleted: true,
   },
   {
     id: "reppy",
@@ -25,5 +28,14 @@ export const projects = [
     description:
       "Workout generator app aimed at beginners looking for a plan that may find certain exercises intimidating.",
     techStack: ["React.js", "CSS", "Javascript"],
+    isCompleted: true,
+  },
+  {
+    id: "spare-project",
+    title: "Example1",
+    description:
+      "Workout generator app aimed at beginners looking for a plan that may find certain exercises intimidating.",
+    techStack: ["React.js", "CSS", "Javascript"],
+    isCompleted: false,
   },
 ];
