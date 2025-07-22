@@ -7,7 +7,7 @@ import ToDoNote from "./ToDoNote";
 import Polaroid from "./Polaroid";
 import { polaroids } from "../lib/polaroids";
 import QuoteNote from "./QuoteNote";
-
+import { useState, useEffect } from "react";
 const NotePositions = [
   { x: 50, y: 450, z: 1 },
   { x: 250, y: 450, z: 2 },
@@ -32,12 +32,21 @@ const noteColours = [
 
 export default function StickyGrid() {
   const completedProjects = projects.filter((p) => p.isCompleted);
-
+  const [showHint, setShowHint] = useState(true);
+  useEffect(() => {
+    const timeout = setTimeout(() => setShowHint(false), 7000);
+    return () => clearTimeout(timeout);
+  }, []);
   return (
     <div
       className="relative flex overflow-hidden"
       style={{ height: "1300px", touchAction: "none" }}
     >
+      {showHint && (
+        <div className="absolute top-100 left-1/2 transform -translate-x-1/2 text-xs bg-white text-gray-800 px-2 py-1 rounded shadow-md z-10 animate-pulse">
+          Tap note to view details
+        </div>
+      )}
       <div className="m-20">
         <ToDoNote initialX={530} initialY={0} zIndex={1} rotation={0} />
         <ContactNote rotation={7} initialX={900} initialY={350} zIndex={1} />
