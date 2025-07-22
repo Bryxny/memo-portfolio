@@ -33,7 +33,7 @@ export default function QuoteNote({
             onMouseDown={onMouseDown}
           />
           <h2 className="handwriting mt-15 text-2xl font-bold text-gray-800 pr-5 text-center tracking-widest">
-            Don't wish for it. Work for it.
+            Dont wish for it. Work for it.
           </h2>
         </div>
       )}
