@@ -1,18 +1,18 @@
 export const polaroids = [
   {
-    url: "/polaroids/polaroid1.webp",
+    url: "/polaroids/Polaroid1.webp",
     text: "Cinder doing quality control",
   },
   {
-    url: "/polaroids/polaroid3.webp",
+    url: "/polaroids/Polaroid3.webp",
     text: "Cold air, clear thoughts.",
   },
   {
-    url: "/polaroids/polaroid4.webp",
+    url: "/polaroids/Polaroid4.webp",
     text: "Amsterdam 2024",
   },
   {
-    url: "/polaroids/polaroid2.webp",
+    url: "/polaroids/Polaroid2.webp",
     text: "A quiet moment",
   },
 ];

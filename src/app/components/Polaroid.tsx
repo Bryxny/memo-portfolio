@@ -18,6 +18,7 @@ export default function Polaroid({
   initialY = 0,
   zIndex = 1,
 }: PolaroidProps) {
+  console.log(url);
   return (
     <Draggable initialX={initialX} initialY={initialY} zIndex={zIndex}>
       {(onMouseDown) => (
